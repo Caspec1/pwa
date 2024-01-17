@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { startLogout } from '../../actions/auth';
+import { Online, Offline } from 'react-detect-offline'
 
 export const Navbar = () => {
 
@@ -16,8 +17,15 @@ export const Navbar = () => {
             <span className="navbar-brand">
                 { name }
             </span>
-            
-            <button 
+
+            <Online className='text-success green'>
+                Online
+            </Online>
+            <Offline className='text-danger red'>
+                Offline - Peticiones serán guardadas
+            </Offline>
+
+            <button
                 className="btn btn-outline-danger"
                 onClick={ handleLogout }
             >
